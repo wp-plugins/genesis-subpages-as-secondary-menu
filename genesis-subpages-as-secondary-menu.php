@@ -12,6 +12,10 @@ License: GPLv2
 add_filter('genesis_do_subnav', 'be_subnav');
 function be_subnav( $subnav_output ){
 
+	// Only run on pages
+	if ( !is_page() )
+		return;
+		
 	// Find top level parent
 	global $post;
 	while( $post->post_parent ) $post = get_post( $post->post_parent );
