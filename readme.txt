@@ -25,6 +25,7 @@ Simply activate the plugin, then go to a page with subpages. It should list all 
 
 **Version 1.1**
 
+* Fixed an error when running in debug mode and on a non-page
 * Added 'be_genesis_subpages_args' filter so that you can modify the page arguments.
 
 **Version 1.0**
