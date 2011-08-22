@@ -3,7 +3,7 @@
 Plugin Name: Genesis Subpages as Secondary Menu
 Plugin URI: http://www.billerickson.net
 Description: Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and have the Secondary Menu enabled (Genesis > Theme Settings > Navigation Settings).
-Version: 1.1
+Version: 1.2
 Author: Bill Erickson
 Author URI: http://www.billerickson.net
 License: GPLv2 
@@ -18,11 +18,12 @@ function be_subnav( $subnav_output ){
 		
 	// Find top level parent
 	global $post;
-	while( $post->post_parent ) $post = get_post( $post->post_parent );
+	$parent = $post;
+	while( $parent->post_parent ) $parent = get_post( $parent->post_parent );
 		
 	// Build a menu listing top level parent's children
 	$args = array(
-		'child_of' => $post->ID,
+		'child_of' => $parent->ID,
 		'title_li' => '',
 		'echo' => false,
 	);
