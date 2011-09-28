@@ -23,20 +23,18 @@ Simply activate the plugin, then go to a page with subpages. It should list all 
 
 == Changelog ==
 
-** Version 1.3 **
+= Version 1.3 =
 * Prevents you from activating plugin if you're not using Genesis 
+* Only display subnav if there are subpages, props dburns
 
-** Version 1.2 **
-
+= Version 1.2 =
 * Fixed an error where the subnav could change the active page you're on. 
 
-**Version 1.1 **
-
+= Version 1.1 =
 * Fixed an error when running in debug mode and on a non-page
 * Added 'be_genesis_subpages_args' filter so that you can modify the page arguments.
 
-**Version 1.0 **
-
+= Version 1.0 =
 * This is version 1.0.  Everything's new!
 
 == Upgrade Notice ==
