@@ -6,11 +6,11 @@ Requires at least: 3.0
 Tested up to: 3.5
 Stable tag: 1.5
 
-Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and have the Secondary Menu enabled (Genesis > Theme Settings > Navigation Settings).
+Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and your child theme must support the Secondary Menu Location.
 
 == Description ==
 
-Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and have the Secondary Menu enabled (Genesis > Theme Settings > Navigation Settings).
+Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and your child theme must support the Secondary Menu Location.
 
 Simply activate the plugin, then go to a page with subpages. It should list all the subpages in the secondary menu. Navigating to a subpage will keep the same menu (it lists all subpages of top level page, not current page).
 

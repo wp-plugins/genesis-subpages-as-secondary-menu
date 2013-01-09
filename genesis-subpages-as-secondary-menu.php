@@ -2,7 +2,7 @@
 /*
 Plugin Name: Genesis Subpages as Secondary Menu
 Plugin URI: http://www.billerickson.net
-Description: Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and have the Secondary Menu enabled (Genesis > Theme Settings > Navigation Settings).
+Description: Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and your child theme must support the Secondary Menu Location.
 Version: 1.5
 Author: Bill Erickson
 Author URI: http://www.billerickson.net
