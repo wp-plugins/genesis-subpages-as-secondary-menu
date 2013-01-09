@@ -3,8 +3,8 @@ Contributors: billerickson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2CT6DXD3NLGAS
 Tags: menu, genesis, genesiswp, studiopress
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 1.4
+Tested up to: 3.5
+Stable tag: 1.5
 
 Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and have the Secondary Menu enabled (Genesis > Theme Settings > Navigation Settings).
 
@@ -24,6 +24,9 @@ Simply activate the plugin, then go to a page with subpages. It should list all 
 
 
 == Changelog ==
+
+= Version 1.5 = 
+* Display subnav when using Genesis 1.9 or later
 
 = Version 1.4 =
 * Wrap menu items in unordered list, and make the ul filterable ( be_genesis_subpages_wrapper )
