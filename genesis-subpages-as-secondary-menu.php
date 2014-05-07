@@ -2,8 +2,8 @@
 /*
 Plugin Name: Genesis Subpages as Secondary Menu
 Plugin URI: http://www.billerickson.net
-Description: Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and your child theme must support the Secondary Menu Location.
-Version: 1.5
+Description: Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and have the Secondary Menu enabled (Genesis > Theme Settings > Navigation Settings).
+Version: 1.7
 Author: Bill Erickson
 Author URI: http://www.billerickson.net
 License: GPLv2 
@@ -38,17 +38,26 @@ function be_subnav( $subnav_output ){
 		'echo' => false,
 	);
 	$subnav = wp_list_pages( apply_filters( 'be_genesis_subpages_args', $args ) );
+	if( empty( $subnav ) )
+		return;
 	
 	// Wrap the list items in an unordered list
-	$wrapper = apply_filters( 'be_genesis_subpages_wrapper', array( '<ul id="menu-genesis-subpages" class="nav">', '</ul>' ) );
-	
-	// Output the menu if there is one (from genesis/lib/structure/menu.php)
-	if( !empty( $subnav ) )
-		$subnav_output = sprintf( '<div id="subnav">%2$s%4$s%1$s%5$s%3$s</div>', $subnav, genesis_structural_wrap( 'subnav', '<div class="wrap">', 0 ), genesis_structural_wrap( 'subnav', '</div><!-- end .wrap -->', 0 ), $wrapper[0], $wrapper[1] );
-	else
-		$subnav_output = '';
-	
-	return $subnav_output;
+	$wrapper = apply_filters( 'be_genesis_subpages_wrapper', array( '<ul id="menu-genesis-subpages" class="nav genesis-nav-menu">', '</ul>' ) );
+	$subnav = $wrapper[0] . $subnav . $wrapper[1];
+
+	$subnav_markup_open = genesis_markup( array(
+		'html5'   => '<nav %s>',
+		'xhtml'   => '<div id="subnav">',
+		'context' => 'nav-secondary',
+		'echo'    => false,
+	) );
+	$subnav_markup_open .= genesis_structural_wrap( 'menu-secondary', 'open', 0 );
+
+	$subnav_markup_close  = genesis_structural_wrap( 'menu-secondary', 'close', 0 );
+	$subnav_markup_close .= genesis_html5() ? '</nav>' : '</div>';
+
+	$subnav_output = $subnav_markup_open . $subnav . $subnav_markup_close;
+	return $subnav_output; 
 		
 }
 
@@ -59,4 +68,11 @@ function be_subpages_for_secondary( $locations ) {
 		$locations['secondary'] = 1;
 		
 	return $locations;
+}
+
+// Add menu-item class 
+add_filter( 'page_css_class', 'be_subnav_classes' );
+function be_subnav_classes( $classes ) {
+	$classes[] = 'menu-item';
+	return $classes;
 }
