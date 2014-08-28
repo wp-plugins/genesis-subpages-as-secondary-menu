@@ -14,7 +14,7 @@ Replaces the manually managed Secondary Menu with one that automatically lists t
 
 Simply activate the plugin, then go to a page with subpages. It should list all the subpages in the secondary menu. Navigating to a subpage will keep the same menu (it lists all subpages of top level page, not current page).
 
-[Support Forum](https://github.com/billerickson/Genesis-Subpages-as-Secondary-Menu/issues)
+**No support will be provided by the developer**
 
 == Installation ==
 
