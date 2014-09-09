@@ -3,7 +3,7 @@
 Plugin Name: Genesis Subpages as Secondary Menu
 Plugin URI: http://www.billerickson.net
 Description: Replaces the manually managed Secondary Menu with one that automatically lists the current section's subpages. You must be using the Genesis Framework and have the Secondary Menu enabled (Genesis > Theme Settings > Navigation Settings).
-Version: 1.7
+Version: 1.8
 Author: Bill Erickson
 Author URI: http://www.billerickson.net
 License: GPLv2 
@@ -42,7 +42,7 @@ function be_subnav( $subnav_output ){
 		return;
 	
 	// Wrap the list items in an unordered list
-	$wrapper = apply_filters( 'be_genesis_subpages_wrapper', array( '<ul id="menu-genesis-subpages" class="nav genesis-nav-menu">', '</ul>' ) );
+	$wrapper = apply_filters( 'be_genesis_subpages_wrapper', array( '<ul id="menu-genesis-subpages" class="nav genesis-nav-menu menu-secondary">', '</ul>' ) );
 	$subnav = $wrapper[0] . $subnav . $wrapper[1];
 
 	$subnav_markup_open = genesis_markup( array(
@@ -64,7 +64,7 @@ function be_subnav( $subnav_output ){
 // Let Genesis know there's a subnav menu
 add_filter( 'theme_mod_nav_menu_locations', 'be_subpages_for_secondary' );
 function be_subpages_for_secondary( $locations ) {
-	if( isset( $locations['secondary'] ) )
+	if( ! isset( $locations['secondary'] ) )
 		$locations['secondary'] = 1;
 		
 	return $locations;
